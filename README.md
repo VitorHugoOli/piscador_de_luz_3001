@@ -1,6 +1,6 @@
 # piscador_de_luz_3001
 
-A new Flutter project.
+A flutter project using flutter_blue to communicate with a esp32 microprocessor running a BLE modified blink code.
 
 ## Getting Started
 
