@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'dart:async';
 import 'package:flutter_blue/flutter_blue.dart';
-import 'package:flutter/scheduler.dart';
 
 void main() => runApp(MyApp());
 
@@ -28,20 +27,8 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
   FlutterBlue flutterBlue = FlutterBlue.instance;
 
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-
-  void decrementCounter() {
-    setState(() {
-      _counter = _counter - 1;
-    });
-  }
 
   void scanAndConnect() {
     flutterBlue
@@ -141,8 +128,6 @@ class DeviceScreenState extends State<DeviceScreen> {
   }
 
   void scanNow() async {
-    if (widget.device.state == BluetoothDeviceState.disconnected)
-      widget.device.connect();
     List<BluetoothService> services = await widget.device.discoverServices();
     services.forEach((service) async {
       print(service.uuid);
