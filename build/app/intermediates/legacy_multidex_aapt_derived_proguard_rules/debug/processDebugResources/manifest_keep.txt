@@ -1,0 +1,2 @@
+# Referenced at /home/zeneto/Documents/Projetos/piscador_de_luz_3001/build/app/intermediates/merged_manifests/debug/processDebugManifest/merged/AndroidManifest.xml:25
+-keep class io.flutter.app.FlutterApplication { <init>(...); }

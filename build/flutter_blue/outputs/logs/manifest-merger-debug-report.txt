@@ -1,0 +1,31 @@
+-- Merging decision tree log ---
+manifest
+ADDED from /home/zeneto/Android/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_blue-0.6.2/android/src/main/AndroidManifest.xml:1:1-7:12
+INJECTED from /home/zeneto/Android/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_blue-0.6.2/android/src/main/AndroidManifest.xml:1:1-7:12
+INJECTED from /home/zeneto/Android/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_blue-0.6.2/android/src/main/AndroidManifest.xml:1:1-7:12
+	package
+		ADDED from /home/zeneto/Android/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_blue-0.6.2/android/src/main/AndroidManifest.xml:2:3-40
+		INJECTED from /home/zeneto/Android/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_blue-0.6.2/android/src/main/AndroidManifest.xml
+		INJECTED from /home/zeneto/Android/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_blue-0.6.2/android/src/main/AndroidManifest.xml
+	xmlns:android
+		ADDED from /home/zeneto/Android/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_blue-0.6.2/android/src/main/AndroidManifest.xml:1:11-69
+uses-sdk
+ADDED from /home/zeneto/Android/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_blue-0.6.2/android/src/main/AndroidManifest.xml:3:3-42
+INJECTED from /home/zeneto/Android/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_blue-0.6.2/android/src/main/AndroidManifest.xml:3:3-42
+INJECTED from /home/zeneto/Android/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_blue-0.6.2/android/src/main/AndroidManifest.xml:3:3-42
+	android:minSdkVersion
+		ADDED from /home/zeneto/Android/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_blue-0.6.2/android/src/main/AndroidManifest.xml:3:13-39
+		INJECTED from /home/zeneto/Android/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_blue-0.6.2/android/src/main/AndroidManifest.xml
+		INJECTED from /home/zeneto/Android/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_blue-0.6.2/android/src/main/AndroidManifest.xml
+uses-permission#android.permission.BLUETOOTH
+ADDED from /home/zeneto/Android/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_blue-0.6.2/android/src/main/AndroidManifest.xml:4:3-66
+	android:name
+		ADDED from /home/zeneto/Android/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_blue-0.6.2/android/src/main/AndroidManifest.xml:4:20-63
+uses-permission#android.permission.BLUETOOTH_ADMIN
+ADDED from /home/zeneto/Android/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_blue-0.6.2/android/src/main/AndroidManifest.xml:5:3-72
+	android:name
+		ADDED from /home/zeneto/Android/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_blue-0.6.2/android/src/main/AndroidManifest.xml:5:20-69
+uses-permission#android.permission.ACCESS_COARSE_LOCATION
+ADDED from /home/zeneto/Android/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_blue-0.6.2/android/src/main/AndroidManifest.xml:6:3-78
+	android:name
+		ADDED from /home/zeneto/Android/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_blue-0.6.2/android/src/main/AndroidManifest.xml:6:20-76

@@ -11,9 +11,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Piscador 3001',
       theme: ThemeData(
-        primarySwatch: Colors.red,
+        primarySwatch: Colors.lightBlue,
       ),
-      home: MyHomePage(title: 'Acelerador de LED\'s 3001 ultra'),
+      home: MyHomePage(title: 'Acelerador de LED\'s 3001'),
     );
   }
 }
@@ -28,17 +28,56 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   FlutterBlue flutterBlue = FlutterBlue.instance;
+  List<BluetoothDevice> listD = [];
 
+  void initState() {
+    scanAndConnect();
+    super.initState();
+  }
 
   void scanAndConnect() {
     flutterBlue
-        .scan(scanMode: ScanMode.balanced, timeout: Duration(seconds: 4))
+        .scan(scanMode: ScanMode.balanced, timeout: Duration(seconds: 5))
         .listen((scanResult) {
       // do something with scan result
       BluetoothDevice device = scanResult.device;
-      if (device.name == 'ESP32_Athena_Jose') device.connect();
-      print('${device.name} found! rssi: ${scanResult.rssi}');
+      if (device.name != '' && !listD.contains(device)) {
+        setState(() {
+          listD.add(device);
+        });
+      }
+      print(device.name);
     });
+  }
+
+  Future<void> showList() async {
+    return showDialog<void>(
+        context: context,
+        barrierDismissible: false, // user must tap button!
+        builder: (BuildContext context) {
+          return AlertDialog(
+            title: Text('Conectar a um dispositivo'),
+            content: SingleChildScrollView(
+              child: Column(
+                children: listD
+                    .map((d) => ListTile(
+                          title: Text(d.name),
+                          subtitle: Text(d.id.toString()),
+                          onTap: d.connect,
+                        ))
+                    .toList(),
+              ),
+            ),
+            actions: <Widget>[
+              FlatButton(
+                child: Text('Close'),
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+              ),
+            ],
+          );
+        });
   }
 
   @override
@@ -46,23 +85,25 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
+        actions: <Widget>[
+          IconButton(
+            onPressed: showList,
+            icon: Icon(Icons.sync),
+          )
+        ],
       ),
       body: RefreshIndicator(
         onRefresh: () => flutterBlue.startScan(timeout: Duration(seconds: 2)),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            FlatButton(
-              onPressed: scanAndConnect,
-              child: Text('Scan'),
-            ),
             StreamBuilder<List<BluetoothDevice>>(
-                stream: Stream.periodic(Duration(seconds: 2))
+                stream: Stream.periodic(Duration(seconds: 5))
                     .asyncMap((_) => flutterBlue.connectedDevices),
                 initialData: [],
                 builder: (c, snapshot) => Column(
                       children: snapshot.data
                           .map((d) => ListTile(
+                            leading: Icon(Icons.bluetooth),
                                 title: Text(d.name.toString()),
                                 subtitle: Text(d.id.toString()),
                                 trailing: StreamBuilder<BluetoothDeviceState>(
@@ -74,13 +115,14 @@ class _MyHomePageState extends State<MyHomePage> {
                                         BluetoothDeviceState.connected) {
                                       return RaisedButton(
                                         child: Text('OPEN'),
+                                        color: Colors.lightBlue[300],
                                         onPressed: () => Navigator.of(context)
                                             .push(MaterialPageRoute(
                                                 builder: (context) =>
                                                     DeviceScreen(device: d))),
                                       );
                                     }
-                                    return Text(snapshot.data.toString());
+                                    return Text('');
                                   },
                                 ),
                               ))
@@ -110,18 +152,17 @@ class DeviceScreenState extends State<DeviceScreen> {
     super.initState();
   }
 
-  void incrementOrDecrement (bool isIncrement){
-    if(isIncrement){
-      if (speed < 31){
+  void incrementOrDecrement(bool isIncrement) {
+    if (isIncrement) {
+      if (speed < 31) {
         setState(() {
           speed++;
         });
       }
     } else {
-      if (speed > 1){
+      if (speed > 1) {
         setState(() {
           speed = speed - 1;
-          
         });
       }
     }
@@ -142,6 +183,7 @@ class DeviceScreenState extends State<DeviceScreen> {
       }
     });
   }
+
   @override
   Widget build(BuildContext context) {
     return new WillPopScope(
