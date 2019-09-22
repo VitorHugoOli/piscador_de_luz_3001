@@ -136,7 +136,7 @@ class _MyHomePageState extends State<MyHomePage> {
           actions:<Widget>[
             IconButton(
               onPressed: showList,
-              icon: Icon(Icons.sync),
+              icon: Icon(Icons.bluetooth),
             )
           ],
         ),
@@ -151,7 +151,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   incrementOrDecrement(true);
                 },
                 icon: Icon(Icons.arrow_drop_up),
-                color: Colors.red,
+                color: Colors.blue,
                 iconSize: 100,
                 splashColor: Colors.white,
               ),
@@ -166,7 +166,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   incrementOrDecrement(false);
                 },
                 icon: Icon(Icons.arrow_drop_down),
-                color: Colors.red,
+                color: Colors.blue,
                 iconSize: 100,
                 splashColor: Colors.white,
               )
