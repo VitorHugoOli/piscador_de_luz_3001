@@ -1,7 +1,0 @@
-#Sun Sep 22 15:00:52 BRT 2019
-base.0=/home/zeneto/Documents/Projetos/piscador_de_luz_3001/build/app/intermediates/transforms/dexMerger/debug/0
-path.1=classes2.dex
-renamed.1=classes2.dex
-path.0=classes.dex
-renamed.0=classes.dex
-base.1=/home/zeneto/Documents/Projetos/piscador_de_luz_3001/build/app/intermediates/transforms/dexMerger/debug/0
